@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".RegisterActivity">
+
+
+    <!--Gradient to darken background-->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/darken_bg" >
+    </FrameLayout>
+
+    <!--Layout for user into-->
+
+    <LinearLayout
+        android:id="@+id/input_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginBottom="50dp"
+        android:layout_alignParentBottom="true"
+        android:gravity="center">
+
+        <!--Sign up-->
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:alpha="0.8"
+            android:background="@drawable/edit_text_top"
+            android:fontFamily="@font/lobster"
+            android:padding="15dp"
+            android:text="Sign Up"
+            android:textAlignment="center"
+            android:textColor="@color/cadet_blue"
+            android:textSize="20dp" />
+
+        <!--Add Image-->
+        <ImageView
+            android:id="@+id/user_photo"
+            android:layout_width="wrap_content"
+            android:layout_height="110dp"
+            android:src="@drawable/userphoto"
+            android:textAlignment="center"
+            android:clickable="true"
+            android:background="@drawable/edit_text_middle2"
+            android:alpha="0.8"
+            android:padding="20dp"/>
+
+        <Button
+            android:id="@+id/btn_add_photo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edit_text_middle2"
+            android:alpha="0.8"
+            android:backgroundTint="@color/white"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:clickable="true"
+            style="?android:attr/borderlessButtonStyle"
+            android:text="Add image"
+            android:padding="15dp" />
+
+        <EditText
+            android:id="@+id/name_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edit_text_middle2"
+            android:alpha="0.8"
+            android:hint="Full Name"
+            android:inputType="textPersonName"
+            android:padding="15dp" />
+
+        <EditText
+            android:id="@+id/username_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edit_text_middle2"
+            android:alpha="0.8"
+            android:hint="Username"
+            android:inputType="textPersonName"
+            android:padding="15dp" />
+
+        <EditText
+            android:id="@+id/password_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:alpha="0.8"
+            android:background="@drawable/edit_text_middle2"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:padding="15dp"/>
+
+        <EditText
+            android:id="@+id/cfm_Password_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:alpha="0.8"
+            android:background="@drawable/edit_text_middle2"
+            android:hint="Confirm Password"
+            android:inputType="textPassword"
+            android:padding="15dp"/>
+
+        <EditText
+            android:id="@+id/phone_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:alpha="0.8"
+            android:background="@drawable/edit_text_middle2"
+            android:hint="Phone Number"
+            android:maxLength="10"
+            android:inputType="phone"
+            android:padding="15dp"/>
+
+        <Button
+            android:id="@+id/btn_sign_up"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/button"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:text="@string/sign_up2"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="17sp"/>
+
+        <Button
+            android:id="@+id/btn_sign_in"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:padding="10dp"
+            android:text="@string/already_have_an_account_sign_in1"
+            android:textAllCaps="true"
+            android:textSize="13dp"
+            style="?android:attr/borderlessButtonStyle"
+            android:clickable="true"
+            android:textStyle="bold"
+            android:textColor="@color/blue"
+            android:fontFamily="sans-serif"
+            android:focusable="true" />
+
+    </LinearLayout>
+</RelativeLayout>

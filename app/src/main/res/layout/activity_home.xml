@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".HomeActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edit_text_middle2"
+        android:alpha="0.8"
+        android:fontFamily="@font/lobster"
+        android:textColor="@color/cadet_blue"
+        android:text="Truck Sharing"
+        android:textSize="30dp"
+        android:textAlignment="center"
+        android:padding="15dp" />
+
+    <TextView
+        android:id="@+id/tvUser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:layout_marginTop="70dp"
+        android:layout_gravity="center"
+        android:textColor="@color/cadet_blue"
+        android:background="@drawable/edit_text_middle2"
+        android:alpha="0.8"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+</RelativeLayout>
