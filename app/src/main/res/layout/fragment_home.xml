@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/background"
+    tools:context=".fragments.HomeFragment">
+
+    <LinearLayout
+        android:id="@+id/TopNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:orientation="vertical">
+
+            <!--    logo-->
+            <TextView
+                android:id="@+id/logo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:alpha="0.8"
+                android:background="@drawable/edit_text_middle2"
+                android:fontFamily="@font/lobster"
+                android:padding="10dp"
+                android:text="Truck Sharing"
+                android:textAlignment="center"
+                android:textColor="@color/cadet_blue"
+                android:textSize="20dp" />
+
+        <!--Available trucks-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:alpha="0.8"
+            android:background="@drawable/edit_text_middle2"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:textColor="@color/cadet_blue"
+            android:textSize="15dp"
+            android:layout_marginBottom="10dp"
+            android:text="Available Trucks, To Order Select +"
+            android:textStyle="bold" />
+
+
+    <!--recycler view showing user information-->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view_list_trucks"
+        android:layout_width="match_parent"
+        android:layout_height="340dp"
+        android:scrollbars="vertical"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/truck_list" />
+
+        <!--    floating acting bar -->
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/deliveryOrder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="10dp"
+            android:padding="10dp"
+            android:layout_marginStart="310dp"
+            app:borderWidth="0dp"
+            android:contentDescription="Add delivery order"
+            android:src="@drawable/add"
+            android:backgroundTint="@color/white"/>
+
+    </LinearLayout>
+</FrameLayout>

@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".activity.CreateOrderActivity">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="350dp"
+            android:id="@+id/firstCardView"
+            android:layout_height="600dp"
+            android:layout_marginTop="10dp"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="10dp"
+            android:layout_centerHorizontal="true">
+
+            <LinearLayout
+                android:id="@+id/input_group"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/good_type_heading"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:alpha="0.8"
+                    android:background="@drawable/edit_text_middle2"
+                    android:fontFamily="@font/lobster"
+                    android:text="Good Type:"
+                    android:textAlignment="center"
+                    android:textColor="@color/cadet_blue"
+                    android:textSize="20dp" />
+
+                <!-- row 1 Good Type-->
+                <RadioGroup
+                    android:id="@+id/radio_group_good_type1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <RadioButton
+                        android:id="@+id/btn_furniture"
+                        android:gravity="center"
+                        android:layout_width="120dp"
+                        android:layout_height="50dp"
+                        android:background="@drawable/radio_flat_selector"
+                        android:button="@android:color/transparent"
+                        android:paddingLeft="16dp"
+                        android:paddingTop="3dp"
+                        android:paddingRight="16dp"
+                        android:paddingEnd="16dp"
+                        android:paddingBottom="3dp"
+                        android:text="Furniture"
+                        android:textColor="@color/radio_flat_text_selector" />
+                    <RadioButton
+                        android:id="@+id/btn_BuildingMaterial"
+                        android:gravity="center"
+                        android:layout_width="160dp"
+                        android:layout_height="50dp"
+                        android:background="@drawable/radio_flat_selector"
+                        android:button="@android:color/transparent"
+                        android:paddingLeft="16dp"
+                        android:paddingTop="3dp"
+                        android:paddingRight="16dp"
+                        android:paddingBottom="3dp"
+                        android:text="Building Material"
+                        android:textColor="@color/radio_flat_text_selector" />
+                </RadioGroup>
+                <!-- row 2 Good Type-->
+                <RadioGroup
+                    android:id="@+id/radio_group_good_type2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginBottom="10dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <RadioButton
+                        android:id="@+id/btn_Food"
+                        android:gravity="center"
+                        android:layout_width="110dp"
+                        android:layout_height="50dp"
+                        android:background="@drawable/radio_flat_selector"
+                        android:button="@android:color/transparent"
+                        android:paddingLeft="16dp"
+                        android:paddingTop="3dp"
+                        android:paddingRight="16dp"
+                        android:paddingEnd="16dp"
+                        android:paddingBottom="3dp"
+                        android:text="Food"
+                        android:textColor="@color/radio_flat_text_selector" />
+                    <RadioButton
+                        android:id="@+id/btn_dryGoods"
+                        android:gravity="center"
+                        android:layout_width="110dp"
+                        android:layout_height="50dp"
+                        android:background="@drawable/radio_flat_selector"
+                        android:button="@android:color/transparent"
+                        android:paddingLeft="16dp"
+                        android:paddingTop="3dp"
+                        android:paddingRight="16dp"
+                        android:paddingBottom="3dp"
+                        android:text="Dry Goods"
+                        android:textColor="@color/radio_flat_text_selector" />
+                    <RadioButton
+                        android:id="@+id/input_other_good_type"
+                        android:gravity="center"
+                        android:layout_width="110dp"
+                        android:layout_height="50dp"
+                        android:background="@drawable/radio_flat_selector"
+                        android:button="@android:color/transparent"
+                        android:paddingLeft="16dp"
+                        android:paddingTop="3dp"
+                        android:paddingRight="16dp"
+                        android:paddingBottom="3dp"
+                        android:text="Other"
+                        android:textColor="@color/radio_flat_text_selector" />
+                </RadioGroup>
+
+                <TextView
+                    android:id="@+id/Weight_dimension_heading"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:alpha="0.8"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/edit_text_middle2"
+                    android:fontFamily="@font/lobster"
+                    android:text="Weight and Dimensions:"
+                    android:textAlignment="center"
+                    android:textColor="@color/cadet_blue"
+                    android:textSize="20dp" />
+
+                <!--User input row 1 weight/ dimensions-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+
+                    <EditText
+                        android:id="@+id/input_weight"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/edit_text_middle2"
+                        android:alpha="0.8"
+                        android:hint="Weight"
+                        android:backgroundTint="@color/white"
+                        android:textColorHint="@color/cadet_blue"
+                        android:textAlignment="center"
+                        android:inputType="number"
+                        android:padding="15dp" />
+
+                    <EditText
+                        android:id="@+id/input_width"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/edit_text_middle2"
+                        android:alpha="0.8"
+                        android:hint="Width"
+                        android:backgroundTint="@color/white"
+                        android:textColorHint="@color/cadet_blue"
+                        android:textAlignment="center"
+                        android:inputType="number"
+                        android:padding="15dp" />
+                </LinearLayout>
+
+                <!--User input row 2 weight/ dimensions-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+
+                    <EditText
+                        android:id="@+id/input_length"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/edit_text_middle2"
+                        android:alpha="0.8"
+                        android:hint="Length"
+                        android:backgroundTint="@color/white"
+                        android:textColorHint="@color/cadet_blue"
+                        android:textAlignment="center"
+                        android:inputType="number"
+                        android:padding="15dp" />
+
+                    <EditText
+                        android:id="@+id/input_height"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/edit_text_middle2"
+                        android:alpha="0.8"
+                        android:hint="Height"
+                        android:backgroundTint="@color/white"
+                        android:textColorHint="@color/cadet_blue"
+                        android:textAlignment="center"
+                        android:inputType="number"
+                        android:padding="15dp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/Vehicle_type_heading"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:alpha="0.8"
+                    android:background="@drawable/edit_text_middle2"
+                    android:fontFamily="@font/lobster"
+                    android:text="Vehicle Type:"
+                    android:textAlignment="center"
+                    android:textColor="@color/cadet_blue"
+                    android:textSize="20dp" />
+
+
+                <!-- row 1 vehicle Type-->
+                <RadioGroup
+                    android:id="@+id/radio_group_vehicle_type1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <RadioButton
+                        android:id="@+id/van1"
+                        android:gravity="center"
+                        android:layout_width="110dp"
+                        android:layout_height="50dp"
+                        android:background="@drawable/radio_flat_selector"
+                        android:button="@android:color/transparent"
+                        android:paddingLeft="16dp"
+                        android:paddingTop="3dp"
+                        android:paddingRight="16dp"
+                        android:paddingEnd="16dp"
+                        android:paddingBottom="3dp"
+                        android:text="Van"
+                        android:textColor="@color/radio_flat_text_selector" />
+                    <RadioButton
+                        android:id="@+id/van2"
+                        android:gravity="center"
+                        android:layout_width="110dp"
+                        android:layout_height="50dp"
+                        android:background="@drawable/radio_flat_selector"
+                        android:button="@android:color/transparent"
+                        android:paddingLeft="16dp"
+                        android:paddingTop="3dp"
+                        android:paddingRight="16dp"
+                        android:paddingBottom="3dp"
+                        android:text="Truck"
+                        android:textColor="@color/radio_flat_text_selector" />
+                    <RadioButton
+                        android:id="@+id/van3"
+                        android:gravity="center"
+                        android:layout_width="110dp"
+                        android:layout_height="50dp"
+                        android:background="@drawable/radio_flat_selector"
+                        android:button="@android:color/transparent"
+                        android:paddingLeft="16dp"
+                        android:paddingTop="3dp"
+                        android:paddingRight="16dp"
+                        android:paddingEnd="16dp"
+                        android:paddingBottom="3dp"
+                        android:text="Mini-Truck"
+                        android:textColor="@color/radio_flat_text_selector" />
+                </RadioGroup>
+
+                <!-- row 1 vehicle Type-->
+                <RadioGroup
+                    android:id="@+id/radio_group_vehicle_type2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginBottom="10dp"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <RadioButton
+                        android:id="@+id/van4"
+                        android:gravity="center"
+                        android:layout_width="190dp"
+                        android:layout_height="50dp"
+                        android:background="@drawable/radio_flat_selector"
+                        android:button="@android:color/transparent"
+                        android:paddingLeft="16dp"
+                        android:paddingTop="3dp"
+                        android:paddingRight="16dp"
+                        android:paddingBottom="3dp"
+                        android:text="Refridgerated Truck"
+                        android:textColor="@color/radio_flat_text_selector" />
+                    <RadioButton
+                        android:id="@+id/input_other_vehicle"
+                        android:gravity="center"
+                        android:layout_width="110dp"
+                        android:layout_height="50dp"
+                        android:background="@drawable/radio_flat_selector"
+                        android:button="@android:color/transparent"
+                        android:paddingLeft="16dp"
+                        android:paddingTop="3dp"
+                        android:paddingRight="16dp"
+                        android:paddingEnd="16dp"
+                        android:paddingBottom="3dp"
+                        android:text="Other"
+                        android:textColor="@color/radio_flat_text_selector" />
+                </RadioGroup>
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/create_order"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="460dp"
+                android:background="@drawable/button"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:text="@string/next1"
+                android:backgroundTint="@color/cadet_blue"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:clickable="true"
+                android:focusable="true"
+                android:textSize="17sp"/>
+
+        </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

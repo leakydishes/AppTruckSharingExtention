@@ -1,4 +1,4 @@
-package com.example.apptrucksharing.data;
+package com.example.apptrucksharing.data.user;
 
 import androidx.room.Database;
 import androidx.room.RoomDatabase;

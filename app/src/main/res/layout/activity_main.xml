@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/frame_container"
     android:background="@drawable/background"
-    tools:context=".MainActivity">
-
+    tools:context=".activity.MainActivity">
 
     <!--Gradient to darken background-->
     <FrameLayout
@@ -83,6 +83,9 @@
             android:text="@string/sign_in"
             android:textAllCaps="false"
             android:textColor="@color/white"
+            android:clickable="true"
+            android:focusable="true"
+            android:backgroundTint="@color/cadet_blue"
             android:textSize="17sp"/>
 
         <Button
@@ -93,12 +96,13 @@
             android:padding="10dp"
             android:text="Don't Have an Account?  Sign up"
             android:textAllCaps="true"
-            android:textSize="13dp"
+            android:textSize="12sp"
             android:clickable="true"
             style="?android:attr/borderlessButtonStyle"
             android:textStyle="bold"
             android:textColor="@color/blue"
-            android:fontFamily="sans-serif"/>
+            android:fontFamily="sans-serif"
+            android:focusable="true" />
 
     </LinearLayout>
 </RelativeLayout>

@@ -1,33 +1,29 @@
-package com.example.apptrucksharing;
+package com.example.apptrucksharing.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
 import androidx.room.Room;
-import androidx.room.RoomDatabase;
 
 import android.content.Intent;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.apptrucksharing.data.UserDAO;
-import com.example.apptrucksharing.data.UserDataBase;
-import com.example.apptrucksharing.model.User;
-import com.example.apptrucksharing.data.UserDAO;
-import com.example.apptrucksharing.data.UserDataBase;
+import com.example.apptrucksharing.R;
+import com.example.apptrucksharing.data.user.UserDAO;
+import com.example.apptrucksharing.data.user.UserDataBase;
 import com.example.apptrucksharing.model.User;
 
 public class MainActivity extends AppCompatActivity {
 
-    // variables
+    // variables for user and database
     UserDAO db; //declare user class
     UserDataBase dataBase; //declare database
     Button btn_sign_up, btn_sign_in;
-    TextView textSlogan;
     EditText username_input, password_input;
+    private FragmentManager fragmentManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +48,11 @@ public class MainActivity extends AppCompatActivity {
         btn_sign_in.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+//                Intent i = new Intent(MainActivity.this, HomeActivity.class);
+//                startActivity(i);
+//                finish();
+//            }
                 //to string input
                 String userName = username_input.getText().toString().trim();
                 String password = password_input.getText().toString().trim();

@@ -1,6 +1,7 @@
 package com.example.apptrucksharing.model;
 
 import androidx.annotation.NonNull;
+import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
@@ -8,28 +9,40 @@ import java.io.Serializable;
 
 // model class to get user information and hold data
 // id is primary key
-@Entity
+@Entity(tableName = "user_table")
 public class User implements Serializable {
     @PrimaryKey(autoGenerate = true)
-    @NonNull
     private int id;
-    private String userName;
+
+    @ColumnInfo(name = "userId")
     private String name;
+    @ColumnInfo(name = "userName")
+    private String userName;
+
+    @ColumnInfo(name = "password")
     private String password;
-    private int phoneNumber;
+
+    @ColumnInfo(name = "phoneNumber")
+    private String phoneNumber;
+
 
     // constructor
-    public User(String userName, String name, String password, int phoneNumber) {
-        this.id = id;
+    public User(String userName, String name, String password, String phoneNumber) {
         this.userName = userName;
         this.name = name;
         this.password = password;
         this.phoneNumber = phoneNumber;
     }
 
-
     //getter setters
-    @NonNull
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getUserName() {
         return userName;
     }
@@ -54,11 +67,11 @@ public class User implements Serializable {
         this.password = password;
     }
 
-    public int getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 }
