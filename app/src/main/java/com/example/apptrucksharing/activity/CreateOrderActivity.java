@@ -98,6 +98,7 @@ public class CreateOrderActivity extends AppCompatActivity {
 
                 //Create new object of database
                 DeliveryOrder model = new DeliveryOrder();
+
                 //previous screen data
                 model.setName(receiverName);
                 model.setTime(pickUpTime);

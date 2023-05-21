@@ -25,7 +25,6 @@ public class NewDeliveryActivity extends AppCompatActivity {
     Calendar calendar;
     CalendarView calendarView;
     Date date;
-    String dateFormatObject;
     Button next;
 
     EditText receiver_name, pick_up_time, pick_up_location;

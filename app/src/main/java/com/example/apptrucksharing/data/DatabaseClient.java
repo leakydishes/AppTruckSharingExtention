@@ -20,8 +20,7 @@ public class DatabaseClient implements Serializable {
         this.mCtx = mCtx;
 
         //creating the app database with Room database builder
-        //MyToDos is the name of the database
-        truckDataBase = Room.databaseBuilder(mCtx, TruckDataBase.class, "MyToDos").build();
+        truckDataBase = Room.databaseBuilder(mCtx, TruckDataBase.class, "truck").build();
     }
 
     public static synchronized DatabaseClient getInstance(Context mCtx) {
