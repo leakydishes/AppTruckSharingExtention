@@ -43,12 +43,6 @@ public class HomeFragment extends Fragment {
     FloatingActionButton deliveryOrder;
     TextView logo;
 
-    RecyclerView recyclerView;
-    TruckListAdapter truckListAdapter;
-
-    // variables for order
-    private List<Truck> truckList;
-
     public HomeFragment() {
         // Required empty public constructor
     }
@@ -100,31 +94,11 @@ public class HomeFragment extends Fragment {
             truckDatabase.getDao().insertAllData(new Truck(vanNames[i], vanDescription[i], vanImages[i]));
         }
 
-//
-//        //list of trucks to database
-//        Truck truck = new Truck("van1", "Available", R.drawable.van1);
-//        truckDatabase.getDao().insertAllData(truck);
-//
-//        Truck truck2 = new Truck("van2", "Available", R.drawable.van2);
-//        truckDatabase.getDao().insertAllData(truck2);
-//
-//        Truck truck3 = new Truck("van3", "Available", R.drawable.van3);
-//        truckDatabase.getDao().insertAllData(truck3);
-//
-//        Truck truck4 = new Truck("van4", "Available", R.drawable.van4);
-//        truckDatabase.getDao().insertAllData(truck4);
-//
-//        // set recycler view
-//        RecyclerView recyclerview = view.findViewById(R.id.recycler_view_list_trucks);
-        //List<Truck> trucks = truckDatabase.getDao().getAllData();
-
         // create new listener with adapter and layout
         recyclerview.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, true));
         TruckListAdapter truckListAdapter;
         truckListAdapter = new TruckListAdapter(truckList, requireContext());
         recyclerview.setAdapter(truckListAdapter);
-
-
         return view;
     }
 }

@@ -15,21 +15,6 @@ import java.util.List;
 
 @Dao
 public interface TruckDao {
-//    @Query("SELECT * FROM truck")
-//    List<Truck> getAll();
-//
-//    @Insert
-//    void insert(Truck truck);
-//
-//    @Query("SELECT * FROM truck WHERE id =:id")
-//    Truck getFromId(int id);
-//
-//    @Update
-//    void update(Truck truck);
-//
-//    @Delete
-//    void delete(Truck truck);
-
     @Insert
     void insertAllData(Truck truck);
     //Select All Data
