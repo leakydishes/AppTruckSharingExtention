@@ -33,7 +33,7 @@ public class MyOrders extends AppCompatActivity implements OrderListAdapter.Item
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_orders);
 
-        recyclerview = findViewById(R.id.recycler_view_list_orders); // Get list of trucks to recycler view
+        recyclerview = findViewById(R.id.recycler_view_list_orders); // Get list to recycler view
 
         //variables
         getData();
@@ -58,7 +58,7 @@ public class MyOrders extends AppCompatActivity implements OrderListAdapter.Item
         // Lookup the recyclerview in activity layout
         RecyclerView recyclerview = (RecyclerView) findViewById(R.id.recycler_view_list_orders);
         // Create adapter passing in the sample user data
-        OrderListAdapter adapter = new OrderListAdapter(deliveryOrder, this);
+        OrderListAdapter adapter = new OrderListAdapter(deliveryOrder, this, this);
 
         // Attach the adapter to the recyclerview to populate items
         recyclerview.setAdapter(adapter);
@@ -69,10 +69,13 @@ public class MyOrders extends AppCompatActivity implements OrderListAdapter.Item
     public void onItemClick(DeliveryOrder deliveryOrder) {
         Intent intent = new Intent(MyOrders.this, OrderDetails.class);
 
-        String receiver = deliveryOrder.getName();
+        String receiver = deliveryOrder.getReceiverName();
+        String sender = deliveryOrder.getSenderName();
         String date = deliveryOrder.getDate();
-        String location = deliveryOrder.getLocation();
-        String time = deliveryOrder.getTime();
+        String pickUpLocation = deliveryOrder.getPickUpLocation();
+        String dropOffLocation = deliveryOrder.getDropOffLocation();
+        String pickUpTime = deliveryOrder.getpickUpTime();
+        String dropoffTime = deliveryOrder.getdropoffTime();
         String vehicle = deliveryOrder.getVehicleType();
         String weight = deliveryOrder.getWeight();
         String width = deliveryOrder.getWidth();
@@ -81,9 +84,12 @@ public class MyOrders extends AppCompatActivity implements OrderListAdapter.Item
         String goods = deliveryOrder.getGoodType();
 
         intent.putExtra("RECEIVER", receiver);
+        intent.putExtra("SENDER", sender);
         intent.putExtra("DATE", date);
-        intent.putExtra("LOCATION", location);
-        intent.putExtra("TIME", time);
+        intent.putExtra("PICKUPLOCATION", pickUpLocation);
+        intent.putExtra("DROPOFFLOCATION", dropOffLocation);
+        intent.putExtra("PICKUPTIME", pickUpTime);
+        intent.putExtra("DROPTIME", dropoffTime);
         intent.putExtra("VEHICLE", vehicle);
         intent.putExtra("WEIGHT", weight);
         intent.putExtra("WIDTH", width);

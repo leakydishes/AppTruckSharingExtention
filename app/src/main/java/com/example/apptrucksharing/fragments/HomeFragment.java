@@ -26,8 +26,10 @@ import com.example.apptrucksharing.R;
 import com.example.apptrucksharing.activity.CreateOrderActivity;
 import com.example.apptrucksharing.activity.NewDeliveryActivity;
 import com.example.apptrucksharing.data.DatabaseClient;
+import com.example.apptrucksharing.data.deliveryOrder.DeliveryOrderDataBase;
 import com.example.apptrucksharing.data.truck.TruckDao;
 import com.example.apptrucksharing.data.truck.TruckDataBase;
+import com.example.apptrucksharing.model.DeliveryOrder;
 import com.example.apptrucksharing.model.Truck;
 import com.example.apptrucksharing.adapters.TruckListAdapter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -71,8 +73,6 @@ public class HomeFragment extends Fragment {
         logo = view.findViewById(R.id.logo);
         deliveryOrder = view.findViewById(R.id.deliveryOrder);
 
-        // add menu button here
-
         // floating delivery button (+)
         deliveryOrder.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,7 +85,7 @@ public class HomeFragment extends Fragment {
         });
 
         //list of users to database
-        List<Truck> truck = truckDatabase.truckDao().getAll();
+        List<Truck> truckList = truckDatabase.getDao().getAllData();
 
         RecyclerView recyclerview = view.findViewById(R.id.recycler_view_list_trucks); // Get list of trucks to recycler view
 
@@ -97,17 +97,34 @@ public class HomeFragment extends Fragment {
         // insert user
         // iterate through each string and int to array list to show image, title, description
         for (int i = 0; i < vanNames.length; i++) {
-            truckDatabase.truckDao().insert(new Truck(vanNames[i], vanDescription[i], vanImages[i]));
+            truckDatabase.getDao().insertAllData(new Truck(vanNames[i], vanDescription[i], vanImages[i]));
         }
+
+//
+//        //list of trucks to database
+//        Truck truck = new Truck("van1", "Available", R.drawable.van1);
+//        truckDatabase.getDao().insertAllData(truck);
+//
+//        Truck truck2 = new Truck("van2", "Available", R.drawable.van2);
+//        truckDatabase.getDao().insertAllData(truck2);
+//
+//        Truck truck3 = new Truck("van3", "Available", R.drawable.van3);
+//        truckDatabase.getDao().insertAllData(truck3);
+//
+//        Truck truck4 = new Truck("van4", "Available", R.drawable.van4);
+//        truckDatabase.getDao().insertAllData(truck4);
+//
+//        // set recycler view
+//        RecyclerView recyclerview = view.findViewById(R.id.recycler_view_list_trucks);
+        //List<Truck> trucks = truckDatabase.getDao().getAllData();
 
         // create new listener with adapter and layout
         recyclerview.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, true));
         TruckListAdapter truckListAdapter;
-        truckListAdapter = new TruckListAdapter(truck, requireContext());
+        truckListAdapter = new TruckListAdapter(truckList, requireContext());
         recyclerview.setAdapter(truckListAdapter);
 
 
         return view;
     }
-
 }

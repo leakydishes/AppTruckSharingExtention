@@ -25,10 +25,12 @@ import java.util.List;
 public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.MyViewHolder> {
     List<DeliveryOrder> list;
     private ItemClickListener clickListener; // interface global
+    private Context context;
 
-    public OrderListAdapter(List<DeliveryOrder> list, MyOrders clickListener) {
+    public OrderListAdapter(List<DeliveryOrder> list, MyOrders clickListener, Context context) {
         this.list = list;
         this.clickListener = (ItemClickListener) clickListener;
+        this.context = context;
     }
 
     @NonNull
@@ -40,16 +42,39 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.MyVi
 
     @Override
     public void onBindViewHolder(@NonNull OrderListAdapter.MyViewHolder holder, int position) {
-        holder.toReceiver.setText(list.get(position).getVehicleType());
+        holder.receiver.setText(list.get(position).getReceiverName());
+        holder.sender.setText(list.get(position).getSenderName());
         holder.date.setText(list.get(position).getDate());
-        holder.location.setText(list.get(position).getLocation());
-        holder.time.setText(list.get(position).getTime());
+        holder.pick_up_location.setText(list.get(position).getPickUpLocation());
+        holder.drop_off_location.setText(list.get(position).getDropOffLocation());
+        holder.pickTime.setText(list.get(position).getpickUpTime());
+        holder.dropTime.setText(list.get(position).getdropoffTime());
         holder.vehicle.setText(list.get(position).getVehicleType());
         holder.weight.setText(list.get(position).getWeight());
         holder.width.setText(list.get(position).getWidth());
         holder.height.setText(list.get(position).getHeight());
         holder.length.setText(list.get(position).getLength());
         holder.goods.setText(list.get(position).getGoodType());
+
+        String vehicleType = (list.get(position).getVehicleType());
+        if(context!=null){
+            if(vehicleType == "Van" || vehicleType == "Other")
+            {
+                Glide.with(context).load(R.drawable.van1).into(holder.truck_Image);
+            }
+            else if(vehicleType == "Truck")
+            {
+                Glide.with(context).load(R.drawable.van2).into(holder.truck_Image);
+            }
+            else if(vehicleType == "Mini-Truck")
+            {
+                Glide.with(context).load(R.drawable.van3).into(holder.truck_Image);
+            }
+            else if(vehicleType == "Refrigerated Truck")
+            {
+                Glide.with(context).load(R.drawable.van4).into(holder.truck_Image);
+            }
+        }
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,18 +91,20 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.MyVi
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
         ImageView truck_Image;
-        TextView toReceiver, time, date, width, location, weight, height, length, vehicle,
-                truck_name, goods;
+        TextView receiver, sender, pickTime, dropTime, date, width, weight, height,
+                length, vehicle, goods, pick_up_location, drop_off_location;
         Button btn_share;
         public MyViewHolder(View itemView) {
             super(itemView);
             // set views
-//            truck_name = itemView.findViewById(R.id.truck_name);
             truck_Image = itemView.findViewById(R.id.truck_Image);
-            toReceiver = itemView.findViewById(R.id.to_receiver);
+            receiver = itemView.findViewById(R.id.receiver);
+            sender = itemView.findViewById(R.id.sender);
             date = itemView.findViewById(R.id.date_booked);
-            location = itemView.findViewById(R.id.location_booked);
-            time = itemView.findViewById(R.id.time_booked);
+            pick_up_location = itemView.findViewById(R.id.pick_up_location);
+            drop_off_location = itemView.findViewById(R.id.drop_off_location);
+            pickTime = itemView.findViewById(R.id.pick_up_time);
+            dropTime = itemView.findViewById(R.id.drop_off_time);
             vehicle = itemView.findViewById(R.id.truck_name);
             weight = itemView.findViewById(R.id.weight_recording);
             width = itemView.findViewById(R.id.width_recording);

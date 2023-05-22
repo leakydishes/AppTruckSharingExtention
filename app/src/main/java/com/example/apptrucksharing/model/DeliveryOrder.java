@@ -12,26 +12,46 @@ public class DeliveryOrder {
     @PrimaryKey(autoGenerate = true)
     @NonNull
     public int key;
-    @ColumnInfo(name = "name")
-    public String name;
+
+    @ColumnInfo(name = "receiverName")
+    public String receiverName;
+
+    @ColumnInfo(name = "senderName")
+    public String senderName;
+
     @ColumnInfo(name = "date")
     public String date;
-    @ColumnInfo(name = "time")
-    public String time;
-    @ColumnInfo(name = "location")
-    public String location;
+
+    @ColumnInfo(name = "pickUpTime")
+    public String pickUpTime;
+
+    @ColumnInfo(name = "dropoffTime")
+    public String dropoffTime;
+
+    @ColumnInfo(name = "pickUpLocation")
+    public String pickUpLocation;
+
+    @ColumnInfo(name = "dropOffLocation")
+    public String dropOffLocation;
+
     @ColumnInfo(name = "goodType")
     public String goodType;
+
     @ColumnInfo(name = "weight")
     public String weight;
+
     @ColumnInfo(name = "width")
     public String width;
+
     @ColumnInfo(name = "length")
     public String length;
+
     @ColumnInfo(name = "height")
     public String height;
+
     @ColumnInfo(name = "vehicle")
     public String vehicleType;
+
     @ColumnInfo(name = "drawableResId")
     public int drawableResId;
     // R drawbable is int
@@ -46,12 +66,20 @@ public class DeliveryOrder {
         this.key = key;
     }
 
-    public String getName() {
-        return name;
+    public String getSenderName() {
+        return senderName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setSenderName(String name) {
+        this.senderName = name;
+    }
+
+    public String getReceiverName() {
+        return receiverName;
+    }
+
+    public void setReceiverName(String name) {
+        this.receiverName = name;
     }
 
     public String getDate() {
@@ -62,20 +90,28 @@ public class DeliveryOrder {
         this.date = date;
     }
 
-    public String getTime() {
-        return time;
+    public String getpickUpTime() { return pickUpTime; }
+
+    public void setdropoffTime(String dropoffTime) {
+        this.dropoffTime = dropoffTime;
     }
 
-    public void setTime(String time) {
-        this.time = time;
+    public String getdropoffTime() { return dropoffTime; }
+
+    public void setpickUpTime(String pickUpTime) {
+        this.pickUpTime = pickUpTime;
     }
 
-    public String getLocation() {
-        return location;
+    public String getPickUpLocation() {
+        return pickUpLocation;
     }
 
-    public void setLocation(String location) {
-        this.location = location;
+    public void setPickUpLocation(String pickUpLocation) { this.pickUpLocation = pickUpLocation;}
+
+    public String getDropOffLocation() { return dropOffLocation;}
+
+    public void setDropOffLocation(String dropOffLocation) {
+        this.dropOffLocation = dropOffLocation;
     }
 
     public String getGoodType() {

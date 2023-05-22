@@ -46,7 +46,6 @@
             android:layout_height="wrap_content"
             android:background="@drawable/edit_text_top"
             android:alpha="0.8"
-            android:fontFamily="@font/lobster"
             android:textColor="@color/cadet_blue"
             android:text="Truck Sharing"
             android:textSize="30dp"

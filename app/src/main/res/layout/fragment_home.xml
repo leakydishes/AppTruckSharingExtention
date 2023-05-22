@@ -21,7 +21,7 @@
                 android:layout_height="wrap_content"
                 android:alpha="0.8"
                 android:background="@drawable/edit_text_middle2"
-                android:fontFamily="@font/lobster"
+                android:textStyle="bold"
                 android:padding="10dp"
                 android:text="Truck Sharing"
                 android:textAlignment="center"

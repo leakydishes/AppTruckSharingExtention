@@ -35,7 +35,7 @@
             android:layout_height="wrap_content"
             android:alpha="0.8"
             android:background="@drawable/edit_text_top"
-            android:fontFamily="@font/lobster"
+            android:textStyle="bold"
             android:padding="15dp"
             android:text="Sign Up"
             android:textAlignment="center"

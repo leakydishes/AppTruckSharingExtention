@@ -4,6 +4,7 @@
     <string name="delivery_van">Toyota Hiace or similar Group c Automatic Transmission</string>
     <string name="van_moving">Isuzu Van or similar</string>
     <string name="van_tautliner">8 Tonne Tautliner or similar</string>
+    <string name="paypal_button">Pay with PayPal</string>
 
     <string name="toolbar_1">Home</string>
     <string name="toolbar_2">Account</string>
@@ -34,6 +35,7 @@
     <string name="select">Select Item</string>
     <string name="home">Home</string>
     <string name="drop_off_time">Drop off time</string>
+    <string name="good_description">Good Description</string>
 
     <string-array name="good_list">
         <item>Furniture</item>

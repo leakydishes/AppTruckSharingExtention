@@ -19,17 +19,30 @@ import java.util.concurrent.Executors;
 returns access to object DeliveryOrderDao
  */
 
-@Database(entities={DeliveryOrder.class}, version =1, exportSchema = false)
+@Database(entities={DeliveryOrder.class}, version =3, exportSchema = false)
 public abstract class DeliveryOrderDataBase extends RoomDatabase{
 
     public abstract DeliveryOrderDao getDao();
 
     private static DeliveryOrderDataBase instance;
 
+//    public static DeliveryOrderDataBase getDatabase(final Context context) {
+//        if (instance == null) {
+//            synchronized (DeliveryOrderDataBase.class) {
+//                instance = Room.databaseBuilder(context, DeliveryOrderDataBase.class, "DATABASE").allowMainThreadQueries().build();
+//            }
+//        }
+//        return instance;
+//    }
+
     public static DeliveryOrderDataBase getDatabase(final Context context) {
         if (instance == null) {
             synchronized (DeliveryOrderDataBase.class) {
-                instance = Room.databaseBuilder(context, DeliveryOrderDataBase.class, "DATABASE").allowMainThreadQueries().build();
+                instance = Room.databaseBuilder(context.getApplicationContext(),
+                                DeliveryOrderDataBase.class, "DATABASE")
+                        .allowMainThreadQueries()
+                        .fallbackToDestructiveMigration()
+                        .build();
             }
         }
         return instance;

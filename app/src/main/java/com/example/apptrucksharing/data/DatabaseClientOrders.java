@@ -5,7 +5,6 @@ import android.content.Context;
 import androidx.room.Room;
 
 import com.example.apptrucksharing.data.deliveryOrder.DeliveryOrderDataBase;
-import com.example.apptrucksharing.data.truck.TruckDataBase;
 
 public class DatabaseClientOrders {
 

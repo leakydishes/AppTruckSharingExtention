@@ -32,11 +32,16 @@ public interface DeliveryOrderDao {
 
     //Update Data
 
-    @Query("update delivery_order SET name= :name ,time =:time, location =:location where `key`= :key")
-    void updateData(String name, String time, String location, int key);
+    @Query("update delivery_order SET receiverName= :receiverName, senderName= :senderName , " +
+            "pickUpTime= :pickUpTime, dropoffTime =:dropoffTime, pickUpLocation =:pickUpLocation," +
+            "dropOffLocation =:dropOffLocation where `key`= :key")
+    void updateData(String receiverName, String senderName, String dropoffTime, String pickUpTime,
+                    String pickUpLocation, String dropOffLocation, int key);
 
 
-    @Query("update delivery_order SET weight= :weight ,width =:width, length =:length, height =:height, vehicle =:vehicle where `key`= :key")
-    void updateDataDetails(String weight, String width, String length, String height, String vehicle, int key);
+    @Query("update delivery_order SET weight= :weight ,width =:width, length =:length, " +
+            "height =:height, vehicle =:vehicle where `key`= :key")
+    void updateDataDetails(String weight, String width, String length, String height,
+                           String vehicle, int key);
 
 }

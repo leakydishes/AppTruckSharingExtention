@@ -1,59 +1,156 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp"
+    android:paddingBottom="16dp"
     tools:context=".activity.NewDeliveryActivity">
+
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="16dp">
+        android:layout_height="match_parent">
 
         <androidx.cardview.widget.CardView
             android:layout_width="350dp"
             android:id="@+id/firstCardView"
-            android:layout_height="160dp"
+            android:layout_height="300dp"
             app:cardCornerRadius="10dp"
             app:cardElevation="10dp"
             android:layout_centerHorizontal="true">
 
             <LinearLayout
-                android:id="@+id/input_group"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
+                android:orientation="horizontal"
                 android:gravity="center">
 
-                <EditText
-                    android:id="@+id/receiver_name"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:alpha="0.8"
-                    android:background="@drawable/edit_text_middle2"
-                    android:hint="Receiver name"
-                    android:inputType="textPersonName"
-                    android:padding="15dp"/>
-                <EditText
-                    android:id="@+id/pick_up_time"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:alpha="0.8"
-                    android:background="@drawable/edit_text_middle2"
-                    android:hint="Pick up time"
-                    android:inputType="text"
-                    android:padding="15dp"/>
+            <!--Sender username-->
+            <EditText
+                android:id="@+id/receiver_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/edit_text_middle2"
+                android:hint="Receiver name"
+                android:textColorHint="@color/cadet_blue"
+                android:inputType="textPersonName"
+                android:textAlignment="center"
+                android:padding="15dp" />
 
                 <EditText
-                    android:id="@+id/pick_up_location"
-                    android:layout_width="match_parent"
+                    android:id="@+id/sender_name"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:alpha="0.8"
+                    android:layout_weight="1"
                     android:background="@drawable/edit_text_middle2"
-                    android:hint="Pick up location"
+                    android:hint="Sender name"
+                    android:textColorHint="@color/cadet_blue"
+                    android:textAlignment="center"
                     android:inputType="text"
                     android:padding="15dp"/>
             </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <!--Sender username-->
+                <EditText
+                    android:id="@+id/pick_up_time"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColorHint="@color/cadet_blue"
+                    android:background="@drawable/edit_text_middle2"
+                    android:hint="Pick up time"
+                    android:inputType="textPersonName"
+                    android:textAlignment="center"
+                    android:padding="15dp" />
+
+                <EditText
+                    android:id="@+id/drop_off_time"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColorHint="@color/cadet_blue"
+                    android:background="@drawable/edit_text_middle2"
+                    android:hint="Drop off up time"
+                    android:inputType="text"
+                    android:textAlignment="center"
+                    android:padding="15dp"/>
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/pick_up_location"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="100dp"
+                android:textColorHint="@color/cadet_blue"
+                android:background="@drawable/edit_text_middle2"
+                android:hint="Pick up location"
+                android:inputType="textPersonName"
+                android:textAlignment="center"
+                android:padding="15dp" />
+
+             Pick up location
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="150dp"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <!--Location API fragment-->
+                <fragment
+                    android:id="@+id/autocomplete_fragment"
+                    android:name="com.google.android.libraries.places.widget.AutocompleteSupportFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/drop_off_location"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="200dp"
+                android:background="@drawable/edit_text_middle2"
+                android:hint="Drop off Location"
+                android:inputType="text"
+                android:textColorHint="@color/cadet_blue"
+                android:textAlignment="center"
+                android:padding="15dp"/>
+
+             Drop off location
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="250dp"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <!--Location API fragment-->
+                <fragment
+                    android:id="@+id/autocomplete_fragment2"
+                    android:name="com.google.android.libraries.places.widget.AutocompleteSupportFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </LinearLayout>
+
+
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
@@ -64,6 +161,7 @@
             android:id="@+id/secondCardView"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
+            android:layout_marginBottom="60dp"
             android:layout_below="@+id/firstCardView">
 
             <LinearLayout
@@ -78,8 +176,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Pick a Date:"
+                    android:textStyle="bold"
                     android:textColor="@color/cadet_blue"
-                    android:textSize="15sp"
+                    android:textSize="20sp"
                     android:layout_marginTop="13dp"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
@@ -94,6 +193,7 @@
             <LinearLayout
                 android:layout_width="300dp"
                 android:layout_height="400dp"
+                android:layout_marginTop="10dp"
                 android:layout_gravity="center"
                 android:orientation="vertical">
 
@@ -114,5 +214,4 @@
             </LinearLayout>
         </androidx.cardview.widget.CardView>
     </RelativeLayout>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

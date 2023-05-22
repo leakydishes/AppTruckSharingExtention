@@ -4,6 +4,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.location.LocationListener;
+import android.location.LocationManager;
+import android.location.Location;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -13,10 +16,21 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.apptrucksharing.R;
+import com.google.android.gms.common.api.Status;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.libraries.places.api.Places;
+import com.google.android.libraries.places.api.model.Place;
+import com.google.android.libraries.places.api.net.PlacesClient;
+import com.google.android.libraries.places.widget.Autocomplete;
+import com.google.android.libraries.places.widget.AutocompleteSupportFragment;
+import com.google.android.libraries.places.widget.listener.PlaceSelectionListener;
+import com.google.android.libraries.places.widget.model.AutocompleteActivityMode;
 
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 public class NewDeliveryActivity extends AppCompatActivity {
@@ -27,7 +41,13 @@ public class NewDeliveryActivity extends AppCompatActivity {
     Date date;
     Button next;
 
-    EditText receiver_name, pick_up_time, pick_up_location;
+    LocationListener locationListener;
+    LocationManager locationManager;
+    LocationListener locationListener2;
+    LocationManager locationManager2;
+
+    EditText receiver_name, sender_name, pick_up_time, drop_off_time,
+            pick_up_location, drop_off_location;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,13 +79,75 @@ public class NewDeliveryActivity extends AppCompatActivity {
 
         SimpleDateFormat dateFormatObject = new SimpleDateFormat("dd-MM-yyyy", Locale.ENGLISH);
         receiver_name = findViewById(R.id.receiver_name);
+        sender_name = findViewById(R.id.sender_name);
         pick_up_time = findViewById(R.id.pick_up_time);
+        drop_off_time = findViewById(R.id.drop_off_time);
         pick_up_location = findViewById(R.id.pick_up_location);
+        drop_off_location = findViewById(R.id.drop_off_location);
 
-        //reset variables
-//        receiver_name.setText("");
-//        pick_up_time.setText("");
-//        pick_up_location.setText("");
+        Places.initialize(getApplicationContext(), "AIzaSyDY7GjNsOxWj2FLYeYq0SY4RcdUoP1cXx8");
+        PlacesClient places = Places.createClient(this);
+        PlacesClient places2 = Places.createClient(this);
+
+        // place fragment
+        AutocompleteSupportFragment autocompleteSupportFragment = (AutocompleteSupportFragment)
+                getSupportFragmentManager().findFragmentById(R.id.autocomplete_fragment);
+        autocompleteSupportFragment.setPlaceFields(Arrays.asList(Place.Field.ID, Place.Field.NAME,
+                Place.Field.ADDRESS, Place.Field.LAT_LNG));
+
+        // place fragment
+        AutocompleteSupportFragment autocompleteSupportFragment2 = (AutocompleteSupportFragment)
+                getSupportFragmentManager().findFragmentById(R.id.autocomplete_fragment2);
+        autocompleteSupportFragment2.setPlaceFields(Arrays.asList(Place.Field.ID, Place.Field.NAME,
+                Place.Field.ADDRESS, Place.Field.LAT_LNG));
+
+        // click listener 1
+        autocompleteSupportFragment.setOnPlaceSelectedListener(new PlaceSelectionListener() {
+            // error message
+            @Override
+            public void onError(@NonNull Status status) {
+                Toast.makeText(NewDeliveryActivity.this, "Error Found: "+status, Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void onPlaceSelected(@NonNull Place place) {
+                LatLng latlng = place.getLatLng();
+                drop_off_location.setText(latlng.latitude+","+ latlng.longitude);
+            }
+        });
+
+        // click listener 2
+        autocompleteSupportFragment2.setOnPlaceSelectedListener(new PlaceSelectionListener() {
+            // error message
+            @Override
+            public void onError(@NonNull Status status) {
+                Toast.makeText(NewDeliveryActivity.this, "Error Found: "+status, Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void onPlaceSelected(@NonNull Place place) {
+                LatLng latlng = place.getLatLng();
+                pick_up_location.setText(latlng.latitude+","+ latlng.longitude);
+            }
+        });
+
+        // set location services 1
+        locationManager = (LocationManager) this.getSystemService(LOCATION_SERVICE);
+        locationListener = new LocationListener() {
+            @Override
+            public void onLocationChanged(@NonNull Location location) {
+                pick_up_location.setText(location.getLatitude()+","+location.getLongitude());
+            }
+        };
+
+        // set location services 2
+        locationManager2 = (LocationManager) this.getSystemService(LOCATION_SERVICE);
+        locationListener2 = new LocationListener() {
+            @Override
+            public void onLocationChanged(@NonNull Location location) {
+                drop_off_location.setText(location.getLatitude()+","+location.getLongitude());
+            }
+        };
 
 
         next = findViewById(R.id.next); // Initialize button
@@ -76,15 +158,21 @@ public class NewDeliveryActivity extends AppCompatActivity {
 
                 // get user information
                 String receiverName = receiver_name.getText().toString().trim();
+                String senderName = sender_name.getText().toString().trim();
                 String pickUpTime = pick_up_time.getText().toString().trim();
+                String dropOffTime = drop_off_time.getText().toString().trim();
                 String pickUpLocation = pick_up_location.getText().toString().trim();
+                String dropOffLocation = drop_off_location.getText().toString().trim();
                 String pickUpDate = String.valueOf(dateFormatObject.format(calendarView.getDate()).trim());
 
                 // bundle data for next fragment
                 Bundle bundle = new Bundle();
                 bundle.putString("receiverName", receiverName);
+                bundle.putString("senderName", senderName);
                 bundle.putString("pickUpTime", pickUpTime);
+                bundle.putString("dropOffTime", dropOffTime);
                 bundle.putString("pickUpLocation", pickUpLocation);
+                bundle.putString("dropOffLocation", dropOffLocation);
                 bundle.putString("pickUpDate", pickUpDate);
 
                 //create object
@@ -94,8 +182,11 @@ public class NewDeliveryActivity extends AppCompatActivity {
                 // next step of delivery
                 Intent intent = new Intent(getBaseContext(), CreateOrderActivity.class);
                 intent.putExtra("receiverName", receiverName);
+                intent.putExtra("senderName", senderName);
                 intent.putExtra("pickUpTime", pickUpTime);
+                intent.putExtra("dropOffTime", dropOffTime);
                 intent.putExtra("pickUpLocation", pickUpLocation);
+                intent.putExtra("dropOffLocation", dropOffLocation);
                 intent.putExtra("pickUpDate", pickUpDate);
                 startActivity(intent);
             }

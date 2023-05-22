@@ -24,6 +24,7 @@ public class HomeActivity extends AppCompatActivity {
     public static FragmentManager fragmentManager;
     public static TruckDataBase truckDatabase;
 
+//    TruckSharingDatabase truckSharingDataBase; //declare database
     public static TruckDao truckDao;
 
     @Override

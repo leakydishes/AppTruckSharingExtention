@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp"
+    android:paddingBottom="16dp"
+    tools:context=".activity.GetEstimateActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/edit_text_middle2"
+            android:text="Pick Up Location: "
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:padding="20dp" />
+
+        <TextView
+            android:id="@+id/pick_up_location"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/edit_text_middle2"
+            android:text="Coburg"
+            android:textAlignment="center"
+            android:padding="20dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/edit_text_middle2"
+            android:text="Drop Off Location: "
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:padding="20dp" />
+
+        <TextView
+            android:id="@+id/drop_off_location"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/edit_text_middle2"
+            android:text="Melbourne"
+            android:textAlignment="center"
+            android:padding="20dp"/>
+    </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="280dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="120dp"
+            android:layout_marginEnd="0dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+                        <fragment
+                            android:id="@+id/mapView"
+                            android:name="com.google.android.gms.maps.SupportMapFragment"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            tools:context=".MapsActivity" />
+                    <fragment
+                        android:id="@+id/mapView2"
+                        android:name="com.google.android.gms.maps.SupportMapFragment"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        tools:context=".MapsActivity" />
+
+        </LinearLayout>
+
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="410dp"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/edit_text_middle2"
+            android:text="Approx. Fare: "
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:padding="10dp" />
+
+        <TextView
+            android:id="@+id/fare_cost"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/edit_text_middle2"
+            android:text="$50"
+            android:textAlignment="center"
+            android:padding="10dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="450dp"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/edit_text_middle2"
+            android:text="Approx. Travel Time: "
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:padding="10dp" />
+
+        <TextView
+            android:id="@+id/travel_time"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/edit_text_middle2"
+            android:text="20 min"
+            android:textAlignment="center"
+            android:padding="10dp"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_call_driver"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="500dp"
+        android:background="@drawable/button"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:text="Call driver"
+        android:textColor="@color/white"
+        android:clickable="true"
+        android:focusable="true"
+        android:backgroundTint="@color/cadet_blue"
+        android:textSize="17sp"/>
+
+    <Button
+        android:id="@+id/pp_btn"
+        android:onClick="handleSubmit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="560dp"
+        android:background="@drawable/button"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:text="@string/paypal_button"
+        android:textColor="@color/white"
+        android:clickable="true"
+        android:focusable="true"
+        android:backgroundTint="@color/cadet_blue"
+        android:textSize="17sp"/>
+
+    </RelativeLayout>
+</ScrollView>

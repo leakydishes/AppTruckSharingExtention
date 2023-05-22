@@ -37,8 +37,11 @@ public class CreateOrderActivity extends AppCompatActivity {
         Intent intent = getIntent();
 
         String receiverName = intent.getStringExtra("receiverName");
+        String senderName = intent.getStringExtra("senderName");
         String pickUpTime = intent.getStringExtra("pickUpTime");
+        String dropoffTime = intent.getStringExtra("dropOffTime");
         String pickUpLocation = intent.getStringExtra("pickUpLocation");
+        String dropOffLocation = intent.getStringExtra("dropOffLocation");
         String pickUpDate = intent.getStringExtra("pickUpDate");
 
         radio_group_good_type1 = findViewById(R.id.radio_group_good_type1);
@@ -100,9 +103,12 @@ public class CreateOrderActivity extends AppCompatActivity {
                 DeliveryOrder model = new DeliveryOrder();
 
                 //previous screen data
-                model.setName(receiverName);
-                model.setTime(pickUpTime);
-                model.setLocation(pickUpLocation);
+                model.setReceiverName(receiverName);
+                model.setSenderName(senderName);
+                model.setpickUpTime(pickUpTime);
+                model.setdropoffTime(dropoffTime);
+                model.setPickUpLocation(pickUpLocation);
+                model.setDropOffLocation(dropOffLocation);
                 model.setDate(pickUpDate);
 
                 // this screen data
