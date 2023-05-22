@@ -190,4 +190,10 @@ public class GetEstimateActivity extends FragmentActivity implements OnMapReadyC
             }
         }
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        stopService(new Intent(this, PayPalService.class));
+    }
 }
