@@ -26,15 +26,6 @@ public abstract class DeliveryOrderDataBase extends RoomDatabase{
 
     private static DeliveryOrderDataBase instance;
 
-//    public static DeliveryOrderDataBase getDatabase(final Context context) {
-//        if (instance == null) {
-//            synchronized (DeliveryOrderDataBase.class) {
-//                instance = Room.databaseBuilder(context, DeliveryOrderDataBase.class, "DATABASE").allowMainThreadQueries().build();
-//            }
-//        }
-//        return instance;
-//    }
-
     public static DeliveryOrderDataBase getDatabase(final Context context) {
         if (instance == null) {
             synchronized (DeliveryOrderDataBase.class) {
