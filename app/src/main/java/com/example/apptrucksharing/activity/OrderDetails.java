@@ -29,8 +29,6 @@ public class OrderDetails extends AppCompatActivity {
 
     Button btn_get_estimate;
 
-    private List<DeliveryOrder> deliveryOrder;
-
     TextView from_sender, from_receiver, drop_off_time, pick_up_time, weight_box, width_box,
             height_box, vehicle_type, goods_type, date_box, pick_up_location,drop_off_location,
             length_box;
@@ -114,8 +112,5 @@ public class OrderDetails extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-
-
     }
 }

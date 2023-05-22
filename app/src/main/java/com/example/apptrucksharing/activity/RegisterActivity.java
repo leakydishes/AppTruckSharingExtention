@@ -37,10 +37,6 @@ public class RegisterActivity extends AppCompatActivity {
     EditText name_edit, username_edit, password_edit, cfm_Password_edit, phone_edit;
     Button btn_sign_up, btn_sign_in, btnGetImage;
     ImageView userPhoto;
-    Uri selectedImageUri;
-    private Intent galleryInt;
-    private ActivityResultLauncher<Intent> galleryActivityResultLauncher;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

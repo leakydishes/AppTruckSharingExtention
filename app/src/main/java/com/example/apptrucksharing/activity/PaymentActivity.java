@@ -13,6 +13,5 @@ import com.example.apptrucksharing.R;
 
 import java.util.Random;
 public class PaymentActivity extends AppCompatActivity {
-
-
+    //empty class for Paypal instance
 }

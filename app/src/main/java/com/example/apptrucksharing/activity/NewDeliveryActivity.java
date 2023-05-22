@@ -85,7 +85,7 @@ public class NewDeliveryActivity extends AppCompatActivity {
         pick_up_location = findViewById(R.id.pick_up_location);
         drop_off_location = findViewById(R.id.drop_off_location);
 
-        Places.initialize(getApplicationContext(), "AIzaSyDY7GjNsOxWj2FLYeYq0SY4RcdUoP1cXx8");
+        Places.initialize(getApplicationContext(), "Insert API here - removed for privacy");
         PlacesClient places = Places.createClient(this);
         PlacesClient places2 = Places.createClient(this);
 

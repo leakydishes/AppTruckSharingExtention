@@ -61,7 +61,7 @@ public class GetEstimateActivity extends FragmentActivity implements OnMapReadyC
     //paypal variable
     private static PayPalConfiguration config = new PayPalConfiguration()
             .environment(PayPalConfiguration.ENVIRONMENT_SANDBOX)
-            .clientId("AeBqHRAZBrBrYaw-ZaFaeTdBacYICCBwn03JGqDqDVX9ZDo5a6Sx8AjPfcwIEyBUY5obQMkTwPYi6moQ");
+            .clientId("Insert API here - removed for privacy");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -189,5 +189,11 @@ public class GetEstimateActivity extends FragmentActivity implements OnMapReadyC
                 }
             }
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        stopService(new Intent(this, PayPalService.class));
     }
 }
